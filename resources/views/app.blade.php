@@ -17,13 +17,22 @@
             </ul>
             <ul class="items">
                 <li v-for="route in $router.options.routes" v-if="route.showInMenu" @click.self="navItemClick" class="item" :class="{ active: $route.name === route.name}">
-                    <router-link :to="{ name: route.name }"><icon v-if="route.icon" :name="route.icon"></icon>@{{ route.title }}</router-link>
+                    <router-link :to="{ name: route.name }"><icon v-if="route.icon" :name="route.icon"></icon><span class="page-name">@{{ route.title }}</span></router-link>
                 </li>
             </ul>
+            <button @click="toggleMenu"><icon name="fold"></icon></button>
         </nav>
         <main>
             @yield('body')
-            <header class="page-header">Shopper > @{{ pagesNames[$route.name] }}</header>
+            <header class="page-header">
+                <ul class="breadcrumb">
+                    <li>Shopper</li>
+                    <li>@{{ pagesNames[$route.name] }}</li>
+                </ul>
+                <div class="actions">
+                    <router-link class="btn btn-primary login" :to="{ name: 'login' }"><icon name="user"></icon> Se connecter / S'inscrire</router-link>
+                </div>
+            </header>
             <router-view class="view"></router-view>
         </main>
     </div>

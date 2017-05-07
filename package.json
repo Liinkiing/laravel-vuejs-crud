@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
+    "vue-localstorage": "^0.2.0",
     "vue-router": "^2.5.3"
   }
 }

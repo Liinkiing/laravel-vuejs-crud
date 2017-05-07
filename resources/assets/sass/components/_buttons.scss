@@ -1,0 +1,12 @@
+.btn {
+  transition: all 0.3s;
+  padding: 10px;
+  color: whitesmoke;
+  text-decoration: none;
+  &.btn-primary {
+    background: $picton-blue;
+    &:hover {
+      background: lighten($picton-blue, 8%);
+    }
+  }
+}

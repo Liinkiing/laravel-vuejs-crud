@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('app');
 });
 
+Route::post('/login', 'Auth\LoginController@login');
+Route::put('/register', 'Auth\RegisterController@register');
 
 Route::any('{all}', function() {
     return view('app');
 })->where(['all' => '.*']);
+

@@ -1,4 +1,5 @@
 nav.sidebar-nav {
+  transition: all 0.3s ease-in-out;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -6,22 +7,6 @@ nav.sidebar-nav {
   & ul {
     margin: 0;
     padding: 0;
-  }
-  &.folded {
-    & .only-unfolded {
-      display: none;
-    }
-    & .only-folded {
-      display: inline-block;
-    }
-  }
-  &.unfolded {
-    & .only-unfolded {
-      display: inline-block;
-    }
-    & .only-folded {
-      display: none;
-    }
   }
   & ul.brand {
     height: 60px;
@@ -32,6 +17,10 @@ nav.sidebar-nav {
       background: $carnation;
       color: whitesmoke;
       font-size: 1rem;
+      &.only-folded {
+        padding: 0;
+        text-align: center;
+      }
       & h1 {
         margin: 0;
         line-height: 60px;
@@ -43,11 +32,6 @@ nav.sidebar-nav {
     list-style-type: none;
     font-size: 0.85rem;
     height: 100%;
-    & .fa-icon {
-      position: relative;
-      top: 2px;
-      margin-right: 10px;
-    }
     & li {
       transition: all 0.3s;
       padding: 15px 10px 15px 20px;
@@ -68,6 +52,26 @@ nav.sidebar-nav {
         }
       }
     }
-
+  }
+  &.folded {
+    width: 60px;
+    & .only-unfolded {
+      display: none;
+    }
+    & .only-folded {
+      display: inline-block;
+    }
+    & span.page-name {
+      display: none;
+    }
+  }
+  &.unfolded {
+    width: 250px;
+    & .only-unfolded {
+      display: inline-block;
+    }
+    & .only-folded {
+      display: none;
+    }
   }
 }

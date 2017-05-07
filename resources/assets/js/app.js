@@ -1,7 +1,11 @@
+import Vue from 'vue';
 import router from './router';
 import 'vue-awesome/icons';
 
 import Icon from 'vue-awesome/components/Icon';
+import VueLocalStorage from 'vue-localstorage';
+
+Vue.use(VueLocalStorage);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -11,7 +15,7 @@ import Icon from 'vue-awesome/components/Icon';
 
 require('./bootstrap');
 
-window.Vue = require('vue'); 
+window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -26,8 +30,12 @@ const app = new Vue({
             folded: false,
         }
     },
-    mounted() {
-        console.log(this.pagesNames);
+    created() {
+        this.folded = this.$localStorage.get('folded') === "true" || false;
+    },
+    updated() {
+        if(this.folded !== this.$localStorage.get('folded')) this.$localStorage.set('folded', this.folded);
+        console.log(this.$localStorage.get('folded'))
     },
     computed: {
         pagesNames() {
