@@ -5,6 +5,9 @@
 @import "~bootstrap/scss/grid";
 
 @import "utils/reset";
+
+@import "components/fonts";
 @import "components/variables";
 
 @import "layouts/general";
+@import "layouts/sidebar";

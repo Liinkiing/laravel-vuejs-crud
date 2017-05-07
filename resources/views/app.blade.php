@@ -10,8 +10,22 @@
 </head>
 <body>
     <div id="app">
-        <h1>Vue</h1>
-        <router-view></router-view>
+        <nav class="sidebar-nav" :class="{folded, unfolded: !folded}">
+            <ul class="brand">
+                <li class="brand-item only-unfolded"><h1>{{ config('app.name') }}</h1></li>
+                <li class="brand-item only-folded"><h1>{{ config('app.shortcut_name') }}</h1></li>
+            </ul>
+            <ul class="items">
+                <li v-for="route in $router.options.routes" v-if="route.showInMenu" @click.self="navItemClick" class="item" :class="{ active: $route.name === route.name}">
+                    <router-link :to="{ name: route.name }"><icon v-if="route.icon" :name="route.icon"></icon>@{{ route.title }}</router-link>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            @yield('body')
+            <header class="page-header">Shopper > @{{ pagesNames[$route.name] }}</header>
+            <router-view class="view"></router-view>
+        </main>
     </div>
 </body>
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>

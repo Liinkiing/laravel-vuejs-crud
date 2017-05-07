@@ -1,7 +1,6 @@
 <template>
-    <div class="home">
-        <h1>Je suis la page d'accueil</h1>
-        <p></p>
+    <div class="about">
+        <h1>Je suis la page About</h1>
     </div>
 </template>
 <script>

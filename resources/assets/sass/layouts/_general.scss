@@ -1,3 +1,27 @@
+#app {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  & .page-header {
+    background: white;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 20px;
+  }
+  & .view {
+    padding-left: 20px;
+  }
+}
+
+html {
+  font-size: 100%;
+}
+
 body {
   background: $porcelain;
+  font-family: 'Ubuntu', 'Lato', 'Roboto', sans-serif;
 }

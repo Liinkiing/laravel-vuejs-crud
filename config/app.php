@@ -14,6 +14,11 @@ return [
 
     'name' => env('APP_NAME', '[ Shopper ]'),
 
+
+
+    'shortcut_name' => '[Sr]',
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

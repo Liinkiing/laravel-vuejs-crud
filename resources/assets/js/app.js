@@ -1,4 +1,8 @@
 import router from './router';
+import 'vue-awesome/icons';
+
+import Icon from 'vue-awesome/components/Icon';
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -7,7 +11,7 @@ import router from './router';
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+window.Vue = require('vue'); 
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -17,5 +21,32 @@ window.Vue = require('vue');
 
 const app = new Vue({
     el: '#app',
+    data() {
+        return {
+            folded: false,
+        }
+    },
+    mounted() {
+        console.log(this.pagesNames);
+    },
+    computed: {
+        pagesNames() {
+            let routes = this.$router.options.routes;
+            let results = {};
+            routes.forEach(route => { results[route.name] = route.title });
+            return results;
+        }
+    },
+    components: { Icon },
+    methods: {
+        toggleMenu() {
+            this.folded = !this.folded;
+        },
+        navItemClick(e) {
+            e.target.firstChild.click();
+        }
+    },
     router
 });
+
+
