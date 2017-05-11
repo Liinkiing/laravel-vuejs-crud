@@ -27,13 +27,17 @@
             <header class="page-header">
                 <ul class="breadcrumb">
                     <li>Shopper</li>
-                    <li>@{{ pagesNames[$route.name] }}</li>
+                    <transition name="fade" mode="out-in">
+                        <li :key="$route.name">@{{ pagesNames[$route.name] }}</li>
+                    </transition>
                 </ul>
                 <div class="actions">
                     <router-link class="btn btn-primary login" :to="{ name: 'login' }"><icon name="user"></icon> Se connecter / S'inscrire</router-link>
                 </div>
             </header>
-            <router-view class="view"></router-view>
+            <transition name="fade" mode="out-in">
+                <router-view class="view"></router-view>
+            </transition>
         </main>
     </div>
 </body>

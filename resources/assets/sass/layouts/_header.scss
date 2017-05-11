@@ -5,6 +5,7 @@ main .page-header {
   height: 60px;
   line-height: 60px;
   padding-left: 20px;
+  box-shadow: $main-shadow;
   & ul.breadcrumb {
     flex: 1;
     list-style-type: none;

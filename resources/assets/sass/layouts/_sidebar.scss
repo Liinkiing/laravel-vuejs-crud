@@ -4,6 +4,11 @@ nav.sidebar-nav {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  & span.page-name {
+    transition: all 0.3s;
+    position: absolute;
+    top: 19px;
+  }
   & ul {
     margin: 0;
     padding: 0;
@@ -35,6 +40,7 @@ nav.sidebar-nav {
     & li {
       transition: all 0.3s;
       padding: 15px 10px 15px 20px;
+      position: relative;
       &:hover {
         background: lighten($bright-gray, 3%);
         cursor: pointer;
@@ -62,7 +68,8 @@ nav.sidebar-nav {
       display: inline-block;
     }
     & span.page-name {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
     }
   }
   &.unfolded {

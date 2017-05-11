@@ -48,7 +48,7 @@
             submitLogin() {
                 axios.post('/login', this.loginForm)
                     .then(response => { console.log(response) })
-                    .catch(error => { console.log(error) })
+                    .catch(error => { console.log(error.response.data) })
             },
             submitRegister() {
                 axios.put('/register', this.registerForm)
