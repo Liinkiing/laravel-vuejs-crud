@@ -20,7 +20,7 @@
                     <router-link :to="{ name: route.name }"><icon v-if="route.icon" :name="route.icon"></icon><span class="page-name">@{{ route.title }}</span></router-link>
                 </li>
             </ul>
-            <button @click="toggleMenu"><icon name="fold"></icon></button>
+            <button @click="toggleMenu">Toggle</button>
         </nav>
         <main>
             @yield('body')
